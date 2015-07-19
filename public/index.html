@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Property Grid</title>
+    <!-- include react -->
+    <script src="/javascripts/react-with-addons.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/twinput-react.css"/>
+    <link href="/stylesheets/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/stylesheets/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+</head>
+<body>
+    <div id="content">
+        <!-- this is where the root react component will get rendered -->
+    </div>
+    <!-- include the webpack-dev-server script so our scripts get reloaded when we make a change -->
+    <!-- we'll run the webpack dev server on port 8090, so make sure it is correct -->
+    <!-- include the bundle that contains all our scripts, produced by webpack -->
+    <!-- the bundle is served by the webpack-dev-server, so serve it also from localhost:8090 -->
+    <script type="text/javascript" src="/assets/bundle.js"></script>
+    <script src='https://code.jquery.com/jquery-1.10.2.min.js'></script>
+    <script src='/javascripts/bootstrap/js/bootstrap.min.js'></script>
+</body>
+</html>

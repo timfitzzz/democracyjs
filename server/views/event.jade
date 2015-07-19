@@ -1,0 +1,48 @@
+extends layout
+
+block content
+    .theme-showcase.container
+      .row.event-header-row
+        .col-md-4
+          .panel-body.event-name #{event.name}
+          h2.event-header-type #{event.type}
+        .col-md-6
+          .event-header-info
+            h2.event-title-panel-h2 #{event.start_day_en}
+            h2 #{event.start_date} to #{event.end_date}
+            h2.event-title-panel-h2 #{event.location}
+        .col-md-2
+          .panel.panel-default.panel-gray.event-control-panel
+            .event-control-panel-title Events
+            .col-md-6.event-control-panel-column
+              button.btn.btn-default(type='button') &lt; Prev
+            .col-md-6.event-control-panel-column
+              button.btn.btn-default(type='button') Next &gt;
+      .row
+        .col-md-7.browser-column
+          .col-md-12.pagination
+            .col-md-4
+              button.btn.btn-lg.btn-default.prev(type='button') Previous
+            .counter-col.col-md-4(style='text-align: start;')
+              span.badge.counts.page-count 1 / 4651.4
+            .col-md-4
+              button.btn.btn-lg.btn-default.next(type='button') Next
+          .col-md-12
+            .panel.panel-default.tweets-panel
+            // tweets go here... how? hmm
+        .col-md-5
+          .col-md-12
+            .panel.panel-default.event-details-panel
+              p.event-p
+                | #{event.description}
+              .col-md-12
+            .panel.panel-default.panel-gray.sidebar-panel
+              h2 Add A Document
+              p.event-p Enter a tweet URL below to add it to the timeline.
+              .col-md-12
+              input.form-control.add-tweet-input(type='text', placeholder='Individual Tweet URL')
+              button.btn.btn-default(type='submit') Submit
+      p
+      p
+      script(type='text/javascript').
+        var event_id = !{JSON.stringify(event.id)};

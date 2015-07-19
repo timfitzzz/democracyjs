@@ -1,0 +1,21 @@
+module.exports = {
+  "DiceyTroop": "https://pbs.twimg.com/profile_images/596551333475323906/ikHF6Fy6_normal.jpg",
+  "OccupyWallStNYC": "https://pbs.twimg.com/profile_images/567403358772662272/BxNhe6D1_normal.jpeg",
+  "somenode": "https://pbs.twimg.com/profile_images/589617894423670785/U2gStz5T_normal.jpg",
+  "DocR0cket": "https://pbs.twimg.com/profile_images/583227857075310592/yA5edt5m_normal.jpg",
+  "Kaymee": "https://pbs.twimg.com/profile_images/585067345263140864/bYptxvnV_normal.jpg",
+  "allisonkilkenny": "https://pbs.twimg.com/profile_images/590231773264547841/Axn1KrkG_normal.jpg",
+  "mcsole": "https://pbs.twimg.com/profile_images/378800000825324292/a8cc3c05bb76bca57674a7662c3c395e_normal.jpeg",
+  "NoFareHikes": "https://pbs.twimg.com/profile_images/3051220864/de93252219dc8a663fd644e0f4311cce_normal.png",
+  "barrett": "https://pbs.twimg.com/profile_images/488738253604806656/d7qcOweb_normal.jpeg",
+  "okayafrica": "https://pbs.twimg.com/profile_images/576447673546334209/M4cV1bfC_normal.png",
+  "ECHOisthename": "https://pbs.twimg.com/profile_images/594631597892046848/-sDzKQ6D_normal.jpg",
+  "windowlej": "https://pbs.twimg.com/profile_images/589305662565457920/gy6004uo_normal.jpg",
+  "ckanal": "https://pbs.twimg.com/profile_images/562277456854261760/Hr85LylA_normal.png",
+  "CarrieM213": "https://pbs.twimg.com/profile_images/498994772250345472/1m8GfX_2_normal.jpeg",
+  "kgosztola": "https://pbs.twimg.com/profile_images/378800000764200227/06fdbd84de5e6bba08a2ff81e7fa56b0_normal.jpeg",
+  "cliffpotts": "https://pbs.twimg.com/profile_images/585577445299978240/XsBSlUbo_normal.jpg",
+  "caulkthewagon": "https://pbs.twimg.com/profile_images/506591748043575296/xvPW59tx_normal.jpeg",
+  "VibeVal": "https://pbs.twimg.com/profile_images/378800000070884648/351482889cd69607f523016c3f7c3736_normal.jpeg",
+  "OccupyWallSt": "https://pbs.twimg.com/profile_images/472024237029736448/rotN-4gP_normal.jpeg"
+};

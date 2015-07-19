@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  .container.theme-showcase
+      .jumbotron
+        h1 Liberty Square Dialogues
+        p An evolving presentation of the history of Occupy Wall Street.
+        p
+      p
+      .row
+        .col-md-4
+          button.btn.btn-lg.btn-default.prev(type='button') Previous
+        .col-md-4.counter-col(style='text-align: start;')
+          span.badge.counts {current_page_number} / {total_pages}
+        .col-md-4
+          button.btn.btn-lg.btn-default.next(type='button') Next
+      p
+      .row
+        .col-md-7
+          .panel.panel-default.tweets-panel
+          // tweets go here... how? hmm
+        .col-md-5
+          .panel.panel-default
+            .panel-body Basic panel example
+          h3 Column title
+          p
+            | Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.

@@ -1,0 +1,31 @@
+{
+  "name": "twinput-react-dev",
+  "version": "1.0.0",
+  "description": "whatevs",
+  "main": "index.jsx",
+  "scripts": {
+    "start": "npm run serve | npm run dev",
+    "serve": "./node_modules/.bin/http-server -p 8080",
+    "dev": "webpack-dev-server --devtool eval --progress --colors --port 8090"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "d3": "^3.5.5",
+    "jquery": "^2.1.4",
+    "jsdom": "^3.1.2",
+    "marty": "^0.10.3",
+    "mocha": "^2.2.4",
+    "moment": "^2.10.3",
+    "react": "^0.13.2",
+    "should": "^6.0.1",
+    "underscore": "^1.8.3",
+    "xmlhttprequest": "^1.7.0"
+  },
+  "devDependencies": {
+    "http-server": "^0.8.0",
+    "jsx-loader": "^0.13.2",
+    "webpack": "^1.8.10",
+    "webpack-dev-server": "^1.8.2"
+  }
+}

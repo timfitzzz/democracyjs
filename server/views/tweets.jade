@@ -1,0 +1,16 @@
+
+each tweet, index in tweets ? tweets : ['There are no tweets to display.']
+  div(class='panel-body' class='tweet' class='tweet-#{index}')
+    .tweet-body
+      .p-author.h-card.tweet-div
+        a.screen-name.u-url.tweet-p(target='https://twitter.com/#{tweet.user.screen_name}')
+          span.avatar.tweet-avatar
+            img(src='#{tweet.user.profile_image_url_https}')
+          span.p-name #{tweet.user.name}
+          span @#{tweet.user.screen_name}
+      .tweet-content
+      .e-content
+        | #{tweet.text}
+      .tweet-footer
+        a.view-detail(target='_blank', href='https://twitter.com/#{tweet.user.screen_name}/status/#{tweet.id_str}') #{(tweet.created_at_en)}
+    .tweet-margin-buttons X
