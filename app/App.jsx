@@ -1,9 +1,5 @@
 /* global require */
 
-// App
-// - props: story_elements and initial_story
-// - manages state for: current_story and hidden_indexes
-
 var React = require('react');
 var _ = require('underscore');
 

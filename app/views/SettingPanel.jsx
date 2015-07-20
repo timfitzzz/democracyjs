@@ -5,20 +5,32 @@ var Panel = require('react-bootstrap').Panel;
 var SettingPanel = require('./SettingPanel.jsx');
 var SettingChanger = require('./SettingChanger.jsx');
 
-module.exports = React.createClass({
+SettingPanel = React.createClass({
 
   displayName: "SettingPanel",
 
 	render: function() {
 		var self =  this;
-		return (<Panel>
-              <div>Setting: {this.props.setting_name}</div>
-              <div>Value: {this.props.setting.value}</div>
-              <SettingChanger setting={this.props.setting_name}
-                              type={this.props.setting.type}
-                              process={this.props.setting.process}
+    var setting = this.props.setting;
+    var setting_name = this.props.setting_name;
+		return (<div>
+              <div>{this.props.setting_name}</div>
+              <SettingChanger groupname={this.props.groupname}
+                              default_value={this.props.setting.value}
+                              setting_name={setting_name}
+                              type={setting.type}
+                              process={setting.process}
 
               />
-		        </Panel>);
+          </div>);
+  }
+});
+
+module.exports = Marty.createContainer(SettingPanel, {
+  listenTo: ["settingsStore"],
+  fetch: {
+    setting: function() {
+      return this.app.settingsStore.getSetting(this.props.groupname, this.props.setting_name);
+    }
   }
 });

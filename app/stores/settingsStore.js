@@ -12,26 +12,42 @@ var SettingsStore = Marty.createStore({
   getInitialState: function() {
     return {
       settings: {
-        title:  {
-          value: "This site is great!",
-          type: "shortText"
-        },
-        backgroundcolor: {
-          value: "#000000",
-          type: "CSS"
+        pageMeta: {
+          title:  {
+            value: "This site is great!",
+            type: "shortText"
+          },
+          backgroundcolor: {
+            value: "#000000",
+            type: "CSS"
+          }
         }
       }
     };
   },
 
-  changeSetting: function (setting, value) {
-    if (this.state.settings[setting]) {
-      this.state.settings[setting].value = value;
+  getAllSettings: function() {
+    return this.state.settings;
+  },
+
+  changeSetting: function (group, setting, value) {
+    if (this.state.settings[group][setting]) {
+      this.state.settings[group][setting].value = value;
+      this.hasChanged();
     }
     else {
+      console.log("Setting doesn't exist");
       return;
     }
   },
+
+  getSettingGroup: function(groupname) {
+    return this.state.settings[groupname];
+  },
+
+  getSetting: function(groupname, settingname) {
+    return this.state.settings[groupname][settingname];
+  }
 
 });
 

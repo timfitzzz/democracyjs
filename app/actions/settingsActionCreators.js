@@ -5,8 +5,8 @@ var SettingsActionCreators = Marty.createActionCreators({
 
   id: "SettingsActionCreators",
 
-  changeSetting: function(setting_name, value) {
-    this.dispatch(SettingsConstants.CHANGE_SETTING, setting_name, value);
+  changeSetting: function(group_name, setting_name, value) {
+    this.dispatch(SettingsConstants.CHANGE_SETTING, group_name, setting_name, value);
   }
 });
 
