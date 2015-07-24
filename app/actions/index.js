@@ -1,3 +1,4 @@
 module.exports = {
-  settingsActionCreators: require('./settingsActionCreators')
+  settingsActionCreators: require('./settingsActionCreators'),
+  personaActionCreators: require('./personaActionCreators')
 };

@@ -7,7 +7,7 @@ var Grid = require('react-bootstrap').Grid,
 var Results = require('./Results.jsx'),
     SettingsBoard = require('./SettingsBoard.jsx'),
     ColThree = require('./ColumnThree.jsx'),
-    ColFour = require('./ColumnFour.jsx');
+    PersonaUI = require('./PersonaUI.jsx');
 
 module.exports = React.createClass({
 
@@ -34,7 +34,7 @@ module.exports = React.createClass({
             />
           </Col>
           <Col md={3}>
-            <ColFour
+            <PersonaUI
 
             />
           </Col>

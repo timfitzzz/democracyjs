@@ -1,3 +1,4 @@
 module.exports = {
-  settingsStore: require('./settingsStore')
+  settingsStore: require('./settingsStore'),
+  personaStore: require('./personaStore')
 };
