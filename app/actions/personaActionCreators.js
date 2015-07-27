@@ -21,7 +21,7 @@ var PersonaActionCreators = Marty.createActionCreators({
     this.dispatch(PersonaConstants.ADD_PERSONA, new_persona_id);
   },
 
-  getCurrentPersona: function() {
+  getCurrentPersonaId: function() {
     this.dispatch(PersonaConstants.GET_CURRENT_PERSONA);
   }
 });
