@@ -1,14 +1,16 @@
 /*
 Proposal Object:
 
-  (The client submits this basic proposal object:)
+  (The client submits this basic protoproposal:)
   {
+
     proposed_by: [persona_id],
     setting_affected: ["setting", |optional: "groupname"],
     new_value: String/Int
 
   (The store appends the following information:)
 
+    id: Int,
     proposed_at: new Moment,
     current_agreements: [a copy of the current 'agreements' setting],
     current_personas: [a copy of the current 'personas' list; these are the people who can participate in this process]
