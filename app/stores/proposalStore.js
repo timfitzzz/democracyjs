@@ -167,12 +167,12 @@ var ProposalStore = Marty.createStore({
     // relevant data:
     var propo_optimism = proposal.optimism;                 // proposal's optimism value
     var propo_consent = proposal.consent_percentage;        // proposal's consent value
-    var propo_optimism_threshhold = proposal.current_agreements.optimism_threshhold; // proposal's
-    var propo_consent_threshhold = proposal.current_agreements.consent_threshhold;
-    var propo_time_since_proposed = Moment.duration.
+    var propo_optimism_threshhold = proposal.current_agreements.optimism_threshhold; // optimism_threshhold at time of proposal
+    var propo_consent_threshhold = proposal.current_agreements.consent_threshhold; // consent_threshhold at time of proposal
+    var propo_time_since_proposed = Moment.duration((new Moment() - proposal.proposed_at);
     //
     // is optimism percentage greater than current_agreements.optimism_threshhold?
-    if (prop)
+    if (propo_optim
         -- if yes: call implementProposal
     -- Q: is initial current consent_percentage > current_agreements.consent_threshhold?
         -- if yes: call implementProposal
@@ -184,7 +184,12 @@ var ProposalStore = Marty.createStore({
 
   },
 
-  qualifyProposal: function(protoproposal) {
+
+  submitProposal() {
+
+  },
+
+  getProtoproposalHandler: function(protoproposal) {
     //shorten vars
     var proposer = proposal_object.proposed_by;
     var setting = proposal_object.setting_affected;
@@ -202,21 +207,59 @@ var ProposalStore = Marty.createStore({
         //// if so, can the persona participate?
         if (_.contains(open_setting_propo.current_personas, proposer])) {
           ///// if so, the proposer participates in the existing proposal.
-          weighInOnProposal(open_setting_propo.id, proposer, "consent"); // TODO LOL
+          return this.weighInOnProposal; // TODO LOL
         } ///// if not, add persona to uninvested_consenters
         else {
-          joinPeanutGalleryOnProposal(open_setting_propo.id, proposer) // TODO LOL
+          return this.joinPeanutGalleryOnProposal; // TODO LOL
         }
       }
       /// if not, an amendment is added to the existing proposal
       else {
-          addAmendmentToProposal(open_setting_propo.id, proposer, new_value); // TODO LOL
+        return this.addAmendmentToProposal; // TODO LOL
       }
     // if no existing proposal handling, make new proposal.
     } else {
-      this.makeProposal(protoproposal);
+      return(this.makeProposal);
     }
   },
+
+  /*
+
+  //shorten vars
+  var proposer = proposal_object.proposed_by;
+  var setting = proposal_object.setting_affected;
+  var new_value = proposal_object.new_value;
+  // does identical proposal exist? (same user, same setting, same new value)
+  if (this.findProposal(null, proposer, setting, new_value)) {
+    /// if yes: TODO return "Proposal already exists" alert and end
+    return [];
+  }
+  // if no: Q: is there already an open proposal pertinent to same setting?
+  var open_setting_propo = this.getOpenProposal(setting);
+  if (open_setting_propo) {
+    /// if so, is there agreement about the new value?
+    if (open_setting_propo.new_value == new_value) {
+      //// if so, can the persona participate?
+      if (_.contains(open_setting_propo.current_personas, proposer])) {
+        ///// if so, the proposer participates in the existing proposal.
+        weighInOnProposal(open_setting_propo.id, proposer, "consent"); // TODO LOL
+      } ///// if not, add persona to uninvested_consenters
+      else {
+        joinPeanutGalleryOnProposal(open_setting_propo.id, proposer) // TODO LOL
+      }
+    }
+    /// if not, an amendment is added to the existing proposal
+    else {
+        addAmendmentToProposal(open_setting_propo.id, proposer, new_value); // TODO LOL
+    }
+  // if no existing proposal handling, make new proposal.
+  } else {
+    this.makeProposal(protoproposal);
+  }
+
+  */
+
+
     //       -- if yes:
       //       -- if yes: Q: is the proposed new value the same?
     //           -- if yes: Q: is proposer in identical proposal's current_personas list?
@@ -238,6 +281,10 @@ var ProposalStore = Marty.createStore({
     //           -- if no: set implemented to false
     //       -- save proposal to state
     // */
+
+  joinPeanutGalleryOnProposal: function(protoproposal) {
+
+  },
 
   consentToProposal: function (persona_id, proposal_id) {
 

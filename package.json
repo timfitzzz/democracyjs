@@ -38,6 +38,7 @@
     "jsx-transform": "^2.2.1",
     "lexical-scope": "*",
     "marty": "^0.10.3",
+    "marty-test-utils": "^0.4.0",
     "mocha": "^2.2.4",
     "moment": "^2.10.3",
     "mongojs": "*",

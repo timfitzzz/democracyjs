@@ -47,6 +47,15 @@ var SettingsStore = Marty.createStore({
 
   getSetting: function(groupname, settingname) {
     return this.state.settings[groupname][settingname];
+  },
+
+  isCurrentSetting: function(setting_object, value) {
+    var setting_path = "";
+    for (level in setting_object) {
+      setting_path.push(level + ".");
+    };
+    setting_path = setting_path.substr(0, setting_path.length-1);
+    return(this.state.settings[setting_path] == value);
   }
 
 });
