@@ -34,8 +34,8 @@ var ProposalActionCreators = Marty.createActionCreators({
 
   id: "ProposalActionCreators",
 
-  makeProposal: function(proposal_object) {
-    this.dispatch(ProposalConstants.MAKE_PROPOSAL, proposal_object);
+  submitProposal: function(proposal_object) {
+    this.dispatch(ProposalConstants.SUBMIT_PROPOSAL, proposal_object);
   },
 
   consentToProposal: function(persona_id, proposal_id) {

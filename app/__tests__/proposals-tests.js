@@ -107,12 +107,25 @@ describe('proposalStore', function() {
 
       setup(proposals_state, settings_state);
 
+      // returnProposalHandler should accept a protoproposal:
+      // {
+      //  proposed_by: "persona",
+      //  setting_affected: ["parent"..."setting"],
+      //  new_value: New Value for Setting
+      // }
+      //
+      // and returns an object:
+      // {  handler: the appropriate handler function for the protoproposal,
+      //    args: {keys and values needed for the handler}
+      //  }
+      //
+
       it('should return appropriate handler function based on proposal content', function() {
 
-        app.proposalStore.returnProposalHandler(protoproposal_with_current_value).should.be('proposalIsRedundant');
-        app.proposalStore.returnProposalHandler(protoproposal_with_different_value).should.be('addAmendmentToProposal');
-        app.proposalStore.returnProposalHandler(protoproposal_with_different_value_where_proposer_cant_vote).should.be('joinPeanutGalleryOnProposal');
-        app.proposalStore.returnProposalHandler(unique_protoproposal).should.be('makeProposal');
+        app.proposalStore.returnProposalHandler(protoproposal_with_current_value).should.be({handler: proposalIsRedundant, args: null});
+        app.proposalStore.returnProposalHandler(protoproposal_with_different_value).should.be({handler: addAmendmentToProposal, args: {proposal_id: 0});
+        app.proposalStore.returnProposalHandler(protoproposal_with_different_value_where_proposer_cant_vote).should.be({handler: joinPeanutGalleryOnProposal, args: {proposal_id: 0});
+        app.proposalStore.returnProposalHandler(unique_protoproposal).should.be({handler: makeProposal, args: null);
       });
     });
 
@@ -121,7 +134,7 @@ describe('proposalStore', function() {
       setup(proposals_state, settings_state);
 
       it('should generate an alert: it\'s already set to that', function() {
-        app.ProposalStore.proposalIsRedundant().should.be(true);
+        // how to test this? app.ProposalStore.proposalIsRedundant().should.be(true);
       });
     });
 
@@ -130,8 +143,8 @@ describe('proposalStore', function() {
       setup(proposals_state, settings_state);
 
       it('should append amendment protoproposal to amendments array of proposals[0] in proposal_store', function() {
-        app.ProposalStore.addAmendmentToProposal(0, protoproposal_with_different_value);
-        app.ProposalStore.state.proposals[0].amendments[0].should.eql(protoproposal_with_different_value);
+        app.proposalStore.addAmendmentToProposal(0, protoproposal_with_different_value);
+        app.proposalStore.state.proposals[0].amendments[0].should.eql(protoproposal_with_different_value);
       });
     });
 
@@ -140,8 +153,8 @@ describe('proposalStore', function() {
       setup(proposals_state, settings_state);
 
       it('should append proposer name to uninvested_consenters and return changed proposal', function() {
-        app.ProposalStore.joinPeanutGalleryOnProposal(protoproposal_with_different_value_where_proposer_cant_vote).should.eql(true);
-        app.ProposalStore.state.proposals[0].uninvested_consenters[0].should.eql(protoproposal_with_different_value_where_proposer_cant_vote.proposed_by);
+        app.proposalStore.joinPeanutGalleryOnProposal(protoproposal_with_different_value_where_proposer_cant_vote).should.eql(true);
+        app.proposalStore.state.proposals[0].uninvested_consenters[0].should.eql(protoproposal_with_different_value_where_proposer_cant_vote.proposed_by);
       });
     });
 
@@ -150,7 +163,14 @@ describe('proposalStore', function() {
       setup(proposals_state, settings_state);
 
       it('should create a new proposal out of the protoproposal and return it', function() {
-        app.ProposalStore.makeProposal(unique_protoproposal).id.should.eql(1);
+        new proposal = app.proposalStore.makeProposal(unique_protoproposal);
+        proposal.id.should.eql(1);
+        proposal.current_agreements.should.eql(app.settingsStore.settings.agreements);
+        proposal.current_personas.should.eql(app.personaStore.personas);
+        proposal.amendments.should.eql([]);
+        proposal.consent_percentage.should.eql(1/this.app.personaStore.state.personas.length);
+        proposal.expired.should.eql(false);
+        })
       });
     });
 

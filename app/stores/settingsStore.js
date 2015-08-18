@@ -18,8 +18,18 @@ var SettingsStore = Marty.createStore({
             type: "shortText"
           },
           backgroundcolor: {
-            value: "#000000",
+            value: "#FFFFAA",
             type: "CSS"
+          }
+        },
+        agreements: {
+          optimism_threshhold: {
+            value: 0.5,
+            type: "percentile"
+          },
+          consent_threshhold: {
+            value: 0.5,
+            type: "percentile"
           }
         }
       }
@@ -47,6 +57,20 @@ var SettingsStore = Marty.createStore({
 
   getSetting: function(groupname, settingname) {
     return this.state.settings[groupname][settingname];
+  },
+
+  getSettingValue: function(setting_object) {
+    return Object.byString(this.state.settings, this.stringifySettingArray(setting_object) + ".value")
+  },
+
+  stringifySettingArray: function(setting_array) {
+    var setting_string = "";
+    _.each(setting_array, function(setting) {
+      setting_string = setting_string+setting+".";
+    });
+    setting_string = setting_string.substr(0, setting_string.length-1);
+    console.log(setting_string);
+    return setting_string;
   },
 
   isCurrentSetting: function(setting_object, value) {

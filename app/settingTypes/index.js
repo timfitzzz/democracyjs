@@ -2,6 +2,7 @@ module.exports = {
 
   shortText: require('./shortText'),
   longText: require('./longText'),
-  CSS: require('./CSS')
+  CSS: require('./CSS'),
+  percentile: require('./percentile')
 
 };

@@ -4,6 +4,7 @@ var Panel = require('react-bootstrap').Panel;
 
 var SettingPanel = require('./SettingPanel.jsx');
 var SettingChanger = require('./SettingChanger.jsx');
+var SettingChangeProposer = require('./SettingChangeProposer.jsx')
 
 SettingPanel = React.createClass({
 
@@ -15,7 +16,7 @@ SettingPanel = React.createClass({
     var setting_name = this.props.setting_name;
 		return (<div>
               <div>{this.props.setting_name}</div>
-              <SettingChanger groupname={this.props.groupname}
+              <SettingChangeProposer groupname={this.props.groupname}
                               default_value={this.props.setting.value}
                               setting_name={setting_name}
                               type={setting.type}
