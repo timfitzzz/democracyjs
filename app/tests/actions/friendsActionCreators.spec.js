@@ -24,10 +24,8 @@ describe('friendActions', function() {
   describe('addFriend', function() {
 
     it('dispatches AddFriend to stores', function() {
-        console.log(app)
         app.friendsActionCreators.addFriend();
         hasDispatched(app, friendsConstants.ADD_FRIEND).should.eql(true);
-
     });
 
   });
