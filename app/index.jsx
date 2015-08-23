@@ -22,5 +22,5 @@ var App = require('./App.jsx');
 
 React.render((<ApplicationContainer app={app}>
 								<App/>
-							</ApplicationContainer>)
-, document.getElementById('content'));
+							</ApplicationContainer>),
+							document.getElementById('content'));
