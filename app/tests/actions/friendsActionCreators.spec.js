@@ -21,11 +21,11 @@ describe('friendActions', function() {
       });
   });
 
-  describe('addFriend', function() {
+  describe('requestAddFriend', function() {
 
-    it('dispatches AddFriend to stores', function() {
-        app.friendsActionCreators.addFriend();
-        hasDispatched(app, friendsConstants.ADD_FRIEND).should.eql(true);
+    it('dispatches ADD_FRIEND_REQUESTED to stores', function() {
+        app.friendsActionCreators.requestAddFriend();
+        hasDispatched(app, friendsConstants.ADD_FRIEND_REQUESTED).should.eql(true);
     });
 
   });

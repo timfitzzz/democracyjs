@@ -6,8 +6,8 @@ var friendsActionCreators = Marty.createActionCreators({
 
   id: "friendsActionCreators",
 
-  addFriend: function() {
-    this.dispatch(friendsConstants.ADD_FRIEND);
+  requestAddFriend: function() {
+    this.dispatch(friendsConstants.ADD_FRIEND_REQUESTED);
   }
 
 

@@ -1,5 +1,6 @@
 module.exports = {
   settingsStore: require('./settingsStore'),
   personaStore: require('./personaStore'),
-  proposalStore: require('./proposalStore')
+  proposalStore: require('./proposalStore'),
+  friendsStore: require('./friendsStore')
 };
