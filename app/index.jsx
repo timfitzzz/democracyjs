@@ -21,6 +21,6 @@ var app = new Application();
 var App = require('./App.jsx');
 
 React.render((<ApplicationContainer app={app}>
-								<App/>
+																<App/>
 							</ApplicationContainer>)
 , document.getElementById('content'));

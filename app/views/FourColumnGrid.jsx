@@ -7,7 +7,8 @@ var Grid = require('react-bootstrap').Grid,
 var Results = require('./Results.jsx'),
     SettingsBoard = require('./SettingsBoard.jsx'),
     ProposalList = require('./ProposalList.jsx'),
-    PersonaUI = require('./PersonaUI.jsx');
+    PersonaUI = require('./PersonaUI.jsx'),
+    FriendsList = require('./FriendsList.jsx');
 
 module.exports = React.createClass({
 
@@ -19,10 +20,10 @@ module.exports = React.createClass({
       <Grid>
         <Row className='dolo-rowlo'>
           <Col md={3}>
-            <PersonaUI
+            <FriendsList
 
             />
-          </Col>          
+          </Col>
           <Col md={3}>
             <SettingsBoard
 

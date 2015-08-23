@@ -11,9 +11,9 @@ var FriendsStore = Marty.createStore({
   },
 
   getInitialState: function() {
-    this.setState({
+    return {
       friends: []
-    });
+    };
   },
 
   // HANDLERS
