@@ -34,40 +34,59 @@ describe('friendsStore', function() {
       app.friendsStore.addChangeListener(listener);
   };
 
-  describe('addFriend', function() {
+  describe('HANDLERS', function() {
 
-    it('runs in response to ADD_FRIEND_REQUESTED from dispatcher', function() {
-      setup("empty_state");
-      var addFriend = sinon.spy(app.friendsStore, "addFriend");
-      dispatch(app, friendsConstants.ADD_FRIEND_REQUESTED);
-      addFriend.should.have.been.calledOnce;
-      addFriend.restore;
-    });
+    describe('addFriend', function() {
 
-    it('adds friend if state is empty', function() {
-      setup("empty_state");
-      app.friendsStore.addFriend();
-      app.friendsStore.state.should.eql({friends:["Friend 1"]});
-    });
+      it('runs in response to ADD_FRIEND_REQUESTED from dispatcher', function() {
+        setup("empty_state");
+        var addFriend = sinon.spy(app.friendsStore, "addFriend");
+        dispatch(app, friendsConstants.ADD_FRIEND_REQUESTED);
+        addFriend.should.have.been.calledOnce;
+        addFriend.restore;
+      });
 
-    it('adds friend if state has one friend', function() {
-      setup("one_friend_state");
-      app.friendsStore.addFriend();
-      app.friendsStore.state.should.eql({friends:["Friend 1", "Friend 2"]});
-    });
+      it('adds friend if state is empty', function() {
+        setup("empty_state");
+        app.friendsStore.addFriend();
+        app.friendsStore.state.should.eql({friends:["Friend 1"]});
+      });
 
-    it('adds friend if state has two friends', function() {
-      setup("two_friend_state");
-      app.friendsStore.addFriend();
-      app.friendsStore.state.should.eql({friends:["Friend 1", "Friend 2", "Friend 3"]});
-    });
+      it('adds friend if state has one friend', function() {
+        setup("one_friend_state");
+        app.friendsStore.addFriend();
+        app.friendsStore.state.should.eql({friends:["Friend 1", "Friend 2"]});
+      });
 
-    it('tells listening views that the friendsStore has changed', function() {
-      setup("empty_state");
-      app.friendsStore.addFriend();
-      listener.should.have.been.calledWith({friends: ["Friend 1"]});
+      it('adds friend if state has two friends', function() {
+        setup("two_friend_state");
+        app.friendsStore.addFriend();
+        app.friendsStore.state.should.eql({friends:["Friend 1", "Friend 2", "Friend 3"]});
+      });
+
+      it('tells listening views that the friendsStore has changed', function() {
+        setup("empty_state");
+        app.friendsStore.addFriend();
+        listener.should.have.been.calledWith({friends: ["Friend 1"]});
+      });
+
     });
 
   });
+
+  describe('GETTERS', function() {
+
+    describe('getFriends', function() {
+
+      it('returns current state of friendsStore', function() {
+        setup("one_friend_state");
+        app.friendsStore.getFriends().should.eql(["Friend 1"]);
+      });
+
+    });
+
+
+  });
+
 
 });

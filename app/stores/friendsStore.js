@@ -16,11 +16,18 @@ var FriendsStore = Marty.createStore({
     });
   },
 
+  // HANDLERS
 
   addFriend: function() {
     this.setState({
       friends: this.state.friends.concat(["Friend " + (this.state.friends.length+1)])
     });
+  },
+
+  // GETTERS
+
+  getFriends: function() {
+    return this.state.friends;
   }
 
 });
