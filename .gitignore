@@ -4,3 +4,4 @@ data
 server/util/db.js
 server/util/_olddb.js
 server/tests/sample_data/
+coverage

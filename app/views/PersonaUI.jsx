@@ -31,7 +31,7 @@ var PersonaUI = React.createClass({
   },
 
   changePersona: function(new_persona_id) {
-    this.context.app.personaActionCreators.setCurrentPersona(new_persona_id);
+    this.context.app.personaActionCreators.setActivePersona(new_persona_id);
   },
 
   renderPersonaAdder: function() {
@@ -78,7 +78,7 @@ module.exports = Marty.createContainer(PersonaUI, {
   listenTo: ["personaStore"],
   fetch: {
     current_persona: function() {
-      return this.app.personaStore.getCurrentPersonaId();
+      return this.app.personaStore.getActivePersona();
     },
     personas: function() {
       return this.app.personaStore.getAllPersonas();

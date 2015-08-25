@@ -348,7 +348,7 @@ var ProposalStore = Marty.createStore({
   },
 
   consentToProposal: function (proposal_id) {
-    var current_persona = this.app.personaStore.getCurrentPersonaId();
+    var current_persona = this.app.personaStore.getActivePersona();
     var proposal = this.state.proposals[proposal_id];
     if (proposal.current_personas[current_persona]) {
       proposal.current_personas[current_persona].consent = true;

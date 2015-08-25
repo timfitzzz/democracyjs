@@ -40,7 +40,7 @@ var SettingChangeProposer = React.createClass({
 
   submitProposal: function (e) {
     var self = this;
-    var proposer = this.context.app.personaStore.state.current_persona_id;
+    var proposer = this.context.app.personaStore.state.active_persona;
     var handler = this.types[this.props.type].handler;
     var change = this.state.field_value;
     var setting_name = [this.props.groupname, this.props.setting_name];

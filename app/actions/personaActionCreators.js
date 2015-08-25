@@ -1,29 +1,18 @@
 var Marty = require('marty');
 var PersonaConstants = require('../constants/personaConstants.js');
 
-var PersonaActionCreators = Marty.createActionCreators({
+var personaActionCreators = Marty.createActionCreators({
 
-  id: "PersonaActionCreators",
+  id: "personaActionCreators",
 
-  setCurrentPersona: function(persona_id) {
-    this.dispatch(PersonaConstants.SET_CURRENT_PERSONA, persona_id);
-  },
-
-  getPersonaActions: function(persona_id) {
-    this.dispatch(PersonaConstants.GET_PERSONA_ACTIONS, persona_id);
-  },
-
-  getAllPersonas: function() {
-    this.dispatch(PersonaConstants.GET_ALL_PERSONAS);
+  setActivePersona: function(persona_id) {
+    this.dispatch(PersonaConstants.SET_ACTIVE_PERSONA, persona_id);
   },
 
   addPersona: function(new_persona_id) {
     this.dispatch(PersonaConstants.ADD_PERSONA, new_persona_id);
-  },
-
-  getCurrentPersonaId: function() {
-    this.dispatch(PersonaConstants.GET_CURRENT_PERSONA);
   }
+
 });
 
-module.exports = PersonaActionCreators;
+module.exports = personaActionCreators;
