@@ -1,6 +1,9 @@
 'use strict'
 /* global require */
+/* global React */
+/*global module */
 
+var Marty = require('marty');
 var Panel = require('react-bootstrap').Panel;
 var DropdownButton = require('react-bootstrap').DropdownButton;
 var MenuItem = require('react-bootstrap').MenuItem;
@@ -16,13 +19,13 @@ var PersonaUI = React.createClass({
   getInitialState: function() {
     return {
       new_persona_field_value: ""
-    }
+    };
   },
 
   onTextChange: function(e) {
     this.setState({
       new_persona_field_value: e.target.value
-    })
+    });
   },
 
   addPersona: function() {
@@ -37,14 +40,16 @@ var PersonaUI = React.createClass({
   renderPersonaAdder: function() {
     return(<form>
               <br></br>
-              <Input type="shortText" onChange={this.onTextChange} placeholder="New Persona"/>
-              <ButtonInput type="reset" onClick={this.addPersona}>Add</ButtonInput>
+              <Input ref="enterPersona" type="shortText" onChange={this.onTextChange} placeholder="New Persona"/>
+              <ButtonInput ref="submitPersona" type="reset" onClick={this.addPersona}>Add</ButtonInput>
       </form>
-    )
+    );
   },
 
   renderPersonaMenuItem: function(index) {
-    return (<MenuItem eventKey={index} key={index}>{index}</MenuItem>)
+    var ref = index.replace(/\s+/g, '');
+    var item = (<MenuItem ref={ref} eventKey={index} key={index}>{index}</MenuItem>);
+    return item;
   },
 
   renderPersonaMenu: function (personas){
@@ -59,14 +64,13 @@ var PersonaUI = React.createClass({
 
 	render: function() {
 		var self = this;
-    var menu_items = this.renderPersonaMenu(this.props.personas);
-		return (<Panel>
-              <div>Current Persona:<br/>
-                <DropdownButton title={this.props.current_persona} onSelect={this.changePersona}>
-                  {menu_items}
+    return (<Panel ref="panel">
+              <div ref="title">Current Persona:<br/>
+                <DropdownButton ref="personaSelector" title={this.props.active_persona} onSelect={this.changePersona}>
+                  {this.renderPersonaMenu(this.props.personas)}
                 </DropdownButton>
               </div>
-              <div>
+              <div ref="adderContainer">
                 {this.renderPersonaAdder()}
               </div>
 		        </Panel>);
@@ -77,7 +81,7 @@ var PersonaUI = React.createClass({
 module.exports = Marty.createContainer(PersonaUI, {
   listenTo: ["personaStore"],
   fetch: {
-    current_persona: function() {
+    active_persona: function() {
       return this.app.personaStore.getActivePersona();
     },
     personas: function() {

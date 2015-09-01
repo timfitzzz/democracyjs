@@ -88,6 +88,11 @@ describe('personaStore', function() {
         app.personaStore.state.active_persona.should.eql("Persona Two");
       });
 
+      it('returns false if the requested persona_id does not exist', function() {
+        setup("default_state");
+        app.personaStore.setActivePersona("Persona Two").should.eql(false);
+      });
+
     });
 
     describe('addPersona', function() {
@@ -120,6 +125,12 @@ describe('personaStore', function() {
         //test state
         app.personaStore.state.should.eql(desired_state);
       });
+
+      it('returns false if the persona already exists', function() {
+        setup("two_persona_state");
+        app.personaStore.addPersona("Persona Two").should.eql(false);
+      });
+
     });
 
   });
@@ -153,6 +164,11 @@ describe('personaStore', function() {
       it('returns array of actions in state by given persona id', function() {
         setup("three_persona_state");
         app.personaStore.getPersonaActions("Persona Two").should.eql([]);
+      });
+
+      it('returns null if persona_id does not exist', function() {
+        setup("default_state");
+        app.personaStore.getPersonaActions("Persona Two").should.eql(false);
       });
     });
 

@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node server",
     "postinstall": "node heroku",
-    "test": "NODE_ENV=test mocha app/tests/**/*.spec.js --compilers js:babel-core/register --require app/tests/support/dom.js",
-    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha app/tests/**/*.spec.js --compilers=js:babel-core/register --require=app/tests/support/dom.js --ui -R  -t=5000"
+    "test": "NODE_ENV=test mocha app/tests/**/*.spec.* --compilers js:babel-core/register --require app/tests/support/dom.js",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha -- app/tests/**/*.spec.* --compilers js:babel-core/register --require app/tests/support/dom.js "
   },
   "repository": {
     "type": "git"
