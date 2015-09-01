@@ -1,4 +1,5 @@
 var Marty = require('marty');
+Object.byString = require('./helpers/object-bystring.js');
 
 var Application = Marty.createApplication(function () {
   this.register(require('./stores'));
