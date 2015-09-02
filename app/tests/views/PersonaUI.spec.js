@@ -125,7 +125,7 @@ describe('PersonaUI', function() {
 
     it('contains persona_submit button', function() {
       component.submitPersona.should.exist;
-    })
+    });
   });
 
   describe('INTERACTIVITY', function() {

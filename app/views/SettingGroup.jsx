@@ -1,5 +1,7 @@
 'use strict'
 /* global require */
+/* global React */
+/* global module */
 var Panel = require('react-bootstrap').Panel;
 var _ = require('underscore');
 
@@ -13,7 +15,7 @@ var SettingGroup = React.createClass({
     var that = this;
     var groupOfPanels = [];
     _.forEach(group, function(setting, index){
-      groupOfPanels.push(<SettingPanel setting={setting} setting_name={index} groupname={that.props.groupname} key={index}/>)
+      groupOfPanels.push(<SettingPanel setting={setting} setting_name={index} groupname={that.props.groupname} key={index}/>);
     });
     return groupOfPanels;
   },

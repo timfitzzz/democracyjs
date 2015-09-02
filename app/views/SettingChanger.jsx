@@ -1,6 +1,8 @@
 'use strict'
 /* global require */
 var Panel = require('react-bootstrap').Panel;
+var Marty = require('marty');
+
 
 var SettingPanel = require('./SettingPanel.jsx');
 
