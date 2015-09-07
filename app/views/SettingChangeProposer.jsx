@@ -1,5 +1,7 @@
 'use strict'
 /* global require */
+/* global module */
+/* global React */
 var Panel = require('react-bootstrap').Panel;
 var Marty = require('marty');
 
@@ -16,27 +18,27 @@ var SettingChangeProposer = React.createClass({
     var default_value = this.props.default_value;
     return {
       field_value: default_value
-    }
+    };
   },
 
 	render: function() {
     var default_value = this.props.default_value;
 		var self =  this;
     if (this.types[this.props.type]) {
-      var changer = (<div><input type={this.types[this.props.type].field_type} onChange={this.onChange} placeholder={default_value}/>
-                        <button onClick={this.submitProposal}>Propose Change</button>
+      var changer = (<div><input ref="changerField" type={this.types[this.props.type].field_type} onChange={this.onChange} placeholder={default_value}/>
+                          <button ref="changeSubmitter" onClick={this.submitProposal}>Propose Change</button>
                       </div>);
 		return changer;
     }
     else {
-      return (<div>invalid type</div>)
+      return (<div>invalid type</div>);
     }
   },
 
   onChange: function(e) {
     this.setState({
       field_value: e.target.value
-    })
+    });
   },
 
   submitProposal: function (e) {

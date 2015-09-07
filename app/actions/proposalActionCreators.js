@@ -48,15 +48,16 @@ var ProposalActionCreators = Marty.createActionCreators({
 
   blockProposal: function(persona_id, proposal_id) {
     this.dispatch(ProposalConstants.BLOCK_PROPOSAL, persona_id, proposal_id);
-  },
+  }
 
+  /* these should just be internal to store?
   implementProposal: function(proposal_id) {
     this.dispatch(ProposalConstants.IMPLEMENT_PROPOSAL, proposal_id);
   },
 
   unimplementProposal: function(proposal_id) {
     this.dispatch(ProposalConstants.UNIMPLEMENT_PROPOSAL, proposal_id);
-  }
+  } */
 });
 
 module.exports = ProposalActionCreators;

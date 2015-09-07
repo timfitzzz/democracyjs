@@ -51,11 +51,10 @@ var ProposalList = React.createClass({
     var that = this;
     var action_handlers = {
       "consent": function(proposal_id) {
-        debugger;
         that.context.app.proposalActionCreators.consentToProposal(proposal_id);
       }
     };
-    return function(){ debugger; action_handlers[action_string](proposal_id) };
+    return function(){ action_handlers[action_string](proposal_id) };
   },
 
 	render: function() {
