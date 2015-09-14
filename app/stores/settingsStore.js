@@ -14,12 +14,16 @@ var SettingsStore = Marty.createStore({
       settings: {
         pageMeta: {
           title:  {
-            value: "This site is great!",
+            value: "NoKings!",
             type: "shortText"
           },
           backgroundcolor: {
             value: "#FFFFAA",
             type: "CSS"
+          },
+          description: {
+            value: "Experiments in unadministration by @dicey__",
+            type: "shortText"
           }
         },
         agreements: {

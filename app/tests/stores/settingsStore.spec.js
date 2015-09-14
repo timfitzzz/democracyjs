@@ -22,7 +22,7 @@ describe('settingsStore', function() {
         settings: {
           pageMeta: {
             title:  {
-              value: "This site is great!",
+              value: "NoKings!",
               type: "shortText"
             },
             backgroundcolor: {

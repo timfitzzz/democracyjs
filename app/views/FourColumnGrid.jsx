@@ -7,7 +7,8 @@ var Grid = require('react-bootstrap').Grid,
 var Results = require('./Results.jsx'),
     SettingsBoard = require('./SettingsBoard.jsx'),
     ProposalList = require('./ProposalList.jsx'),
-    PersonaUI = require('./PersonaUI.jsx');
+    PersonaUI = require('./PersonaUI.jsx'),
+    SiteHeader = require('./SiteHeader.jsx');
 
 module.exports = React.createClass({
 
@@ -22,7 +23,9 @@ module.exports = React.createClass({
             <PersonaUI
 
             />
-          </Col>          
+            <SiteHeader
+            />
+          </Col>
           <Col md={3}>
             <SettingsBoard
 

@@ -608,6 +608,22 @@ describe('proposalStore', function() {
 
     });
 
+    describe('canPersonaActOnProposal', function() {
+
+      var handler_instance = setup("one_proposal_state", "two_persona_state", "default_state");
+      var app = handler_instance.app;
+      var listener = handler_instance.listener;
+
+      it('should return true if persona can act', function() {
+        app.proposalStore.canPersonaActOnProposal("Persona Two", 0).should.eql(true);
+      });
+
+      it('should return false if the persona cannot act', function() {
+        app.proposalStore.canPersonaActOnProposal("Persona Three", 0).should.eql(false);
+      });
+
+    });
+
 
   });
 

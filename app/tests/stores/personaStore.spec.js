@@ -133,6 +133,19 @@ describe('personaStore', function() {
 
     });
 
+    describe('actOnProposal', function() {
+      // dispatches proposal action to proposal store
+
+      it('should dispatch requested action to proposal if eligible', function() {
+
+      });
+
+      it('should ', function() {
+
+      });
+
+    });
+
   });
 
   describe('QUERIES', function() {

@@ -247,9 +247,16 @@ var ProposalStore = Marty.createStore({
       proposals: proposals
     });
     return(proposal.id);
+  },
+
+  canPersonaActOnProposal: function(persona_id, proposal_id) {
+    if (this.state.proposals[proposal_id].current_personas[persona_id]) {
+      return true;
+    }
+    else {
+      return false;
+    }
   }
-
-
 });
 
 module.exports = ProposalStore;

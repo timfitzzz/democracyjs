@@ -50,6 +50,9 @@ var PersonaStore = Marty.createStore({
     }
   },
 
+  consentToProposal: function(persona, proposal) {
+  },
+
   // QUERIES
 
 
